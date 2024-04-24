@@ -1,0 +1,8 @@
+logs/*
+!logs/.gitkeep
+.vscode
+__pycache__/
+test*
+.venv
+.pyc
+.DS_Store

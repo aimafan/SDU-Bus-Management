@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>山东大学公交车管理系统</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <form action="/">
+        <button class="header">
+            <h1>山东大学公交车管理系统</h1>
+        </button>
+    </form>
+    <div class="content">
+        <div class="left">
+            <div class="form-box">
+                <h2>本人坐标</h2>
+                <form id="user-coordinates-form" class="form-group">
+                    <div class="form-row"><label for="user-x">X </label>
+                        <input type="text" id="user-x" name="user-x" class="form-control" style="width: 150px; height: 20px;">
+                    </div>
+
+                    <div class="form-row"><label for="user-y">Y </label>
+                        <input type="text" id="user-y" name="user-y" class="form-control" style="width: 150px; height: 20px;">
+                    </div>
+                    <button type="submit" class="submit-btn">提交</button>
+                </form>
+            </div>
+            <div class="location_result">
+                <h3>我的坐标</h3>
+                <p>{{ my_coor }}</p>
+            </div>
+            <div class="location_result">
+                <h3>目前距离最近的公交站点的距离</h3>
+                <p>{{ value }}个距离单位</p>
+            </div>
+            <div class="location_result">
+                <h3>该站点为</h3>
+                <p>{{ key }}</p>
+            </div>
+            <div class="location_result">
+                <h3>公交站点坐标为</h3>
+                <p>{{ coor }}</p>
+            </div>
+
+        </div>
+        <div class="right">
+            <div class="legend">
+                <!-- 图例按钮 -->
+                <button class="legend-item">
+                    <div class="legend-btn station" title="站点位置"></div>
+                    <div class="legend-text">站点位置</div>
+                </button>
+                <button class="legend-item">
+                    <div class="legend-btn line-1" title="一号线"></div>
+                    <div class="legend-text">一号线</div>
+                </button>
+                <button class="legend-item">
+                    <div class="legend-btn line-2" title="二号线"></div>
+                    <div class="legend-text">二号线</div>
+                </button>
+                <button class="legend-item">
+                    <div class="legend-btn line-3" title="三号线"></div>
+                    <div class="legend-text">三号线</div>
+                </button>
+                <button class="legend-item">
+                    <div class="legend-btn line-4" title="四号线"></div>
+                    <div class="legend-text">四号线</div>
+                </button>
+            </div>
+            <img src="{{ url_for('static', filename=image_filename) }}" alt="Map Image" class="map-image"
+                id="map-image">
+
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+
+</html>
